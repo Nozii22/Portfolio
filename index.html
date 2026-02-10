@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theekshana Sithum Portfolio</title>
+    
+    <link rel="stylesheet" crossorigin href="./assets/css/style.css">
+    
+    <script type="module" crossorigin src="./assets/js/script.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script>
+  // This script fixes the image paths automatically
+  window.addEventListener('load', function() {
+    const images = document.querySelectorAll('[style*="url(/"]');
+    images.forEach(el => {
+      const style = el.getAttribute('style');
+      el.setAttribute('style', style.replace('url(/', 'url(./'));
+    });
+    
+    const imgTags = document.querySelectorAll('img[src^="/"]');
+    imgTags.forEach(img => {
+      img.src = '.' + img.getAttribute('src');
+    });
+  });
+</script>
+</html>,
